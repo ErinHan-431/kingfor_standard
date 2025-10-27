@@ -5,4 +5,5 @@ title: 第三方套件使用準則
    * 不可使用來源不明之套件
    * 不可使用無任何授權之套件
    * 不可使用授權為強制開源之套件
+     * [授權參考](https://www.cmu.edu/cttec/forms/opensourcelicensegridv1.pdf)
    * 宜使用有持續維護之套件
