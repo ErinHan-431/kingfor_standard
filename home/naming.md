@@ -78,7 +78,7 @@ https://www.c-sharpcorner.com/UploadFile/8a67c0/C-Sharp-coding-standards-and-nam
 例如，一個執行檔案上傳的方法，應如此命名：
 
 ```csharp
-public void UploadFile(string name, byte[] fileData) 
+public void UploadFile(string name, byte[] fileData)
 {
     // ... file upload
 }
@@ -88,7 +88,7 @@ public void UploadFile(string name, byte[] fileData)
 
 ```csharp
 // Method1 不明其意
-public void Method1(string name, byte[] fileData) 
+public void Method1(string name, byte[] fileData)
 {
     // ... file upload
 }
@@ -109,7 +109,7 @@ public void Write(sting name, byte[] fileData)
 private double _taxRate = 0.05;
 
 // 傳統寫法
-public double TaxRate 
+public double TaxRate
 {
     get { return _taxRate; }
     set { _taxRate = value; }
@@ -124,7 +124,7 @@ public double TaxRate { get; set; }
 ```csharp
 private double _r = 0.05;
 
-public double R 
+public double R
 {
     get { return _r; }
     set { _r = value; }
@@ -137,7 +137,7 @@ public double R
 
 ## **列舉與常數之命名，以大寫英文字元為首字元，且應可反應實際用途。**
 
-列舉 (enum) 與常數 (const) 用途相似，列舉係以整數為基底順序排列之值集合 (預設為int，由0開始)，常數則是可以自訂的名稱替代數值，以避免魔術數字 (magic number) 的產生，因此其命名原則為以 Pascal 命名規則，則時應反應出該列舉或常數之用途。
+列舉 (enum) 與常數 (const) 用途相似，列舉係以整數為基底順序排列之值集合 (預設為 int，由 0 開始)，常數則是可以自訂的名稱替代數值，以避免魔術數字 (magic number) 的產生，因此其命名原則為以 Pascal 命名規則，則時應反應出該列舉或常數之用途。
 
 列舉型別名稱宜採用單數名稱，且不需加入後綴字，例如：
 
@@ -172,15 +172,15 @@ public const string DEFAULT_IMAGE_TYPE = "Gif";
 Reference: \
 https://www.dofactory.com/csharp-coding-standards#constants
 
-## **如以多個英文單詞描述時，應將單詞以首字大寫方式連接，但第一個字元仍應依上列要求設定；單詞宜避免使用超過三個；如命名超過20字元時，宜考慮使用縮寫，**
+## **如以多個英文單詞描述時，應將單詞以首字大寫方式連接，但第一個字元仍應依上列要求設定；單詞宜避免使用超過三個；如命名超過 20 字元時，宜考慮使用縮寫，**
 
 當變數、方法、屬性等會以兩個字詞 (2 words) 以上命名時，除前述之命名方針外，第一個字詞的首字母依命名方針設定大寫或小寫，第二個字以後採用首字大寫，例如：
 
-* 類別：UserService
-* 變數：\_userService (類別變數) 或是 userService (區域變數)
-* 方法：SubmitFile()
+- 類別：UserService
+- 變數：\_userService (類別變數) 或是 userService (區域變數)
+- 方法：SubmitFile()
 
-為避免名稱過長，單詞宜避免超過三個，若會超過3個單詞但長度小於20時亦可接受，但若會超過20字元時，宜考慮使用縮寫，縮寫 (abbreviation) 亦應使用領域範圍內公認的縮寫，如沒有可公認縮寫時，應在變數宣告時加上註解。
+為避免名稱過長，單詞宜避免超過三個，若會超過 3 個單詞但長度小於 20 時亦可接受，但若會超過 20 字元時，宜考慮使用縮寫，縮寫 (abbreviation) 亦應使用領域範圍內公認的縮寫，如沒有可公認縮寫時，應在變數宣告時加上註解。
 
 > 若無法找到適當縮寫或是使用縮寫會使其辨識度下降時，則可與團隊主管討論確定如何命名。
 
@@ -213,17 +213,19 @@ private RNGCryptoServiceProvider _random_Number_Generator; // 隨機數產生器
 
 另外，使用中文命名會限制程式碼的流通範圍 (與非華人的外國工程師合作時)，且在輸入時需要更多習慣 (如流暢的中文輸入法切換)，否則不利於程式碼的生產力。
 
-## Javascript命名準則
+## Javascript 命名準則
 
-* 使用簡短的標識符，並避免不常用的縮寫。好的變數名通常在3 到10 個字元之間，但這只是一個提示。例如，`accelerometer`比為了字元長度而減短的縮寫`acclmtr`更具描述性。
-* 嘗試使用現實世界相關的例子，其中每個變數都有清晰的語義。只有在範例簡單且隨意時才使用佔位名稱，例如`foo`和`bar`。
-* 不可使用[匈牙利命名法](https://zh.wikipedia.org/wiki/%E5%8C%88%E7%89%99%E5%88%A9%E5%91%BD%E5%90%8D%E6%B3%95)。不要在變數名前面加上型別。
-  * 例如，不要寫成`bBought = oCar.sBuyer != null`或`sName = "John Doe"`，而是寫成`bought = car.buyer !== null`或`sName = "John Doe"`。
-* 對於集合，避免在命名中新增例如清單、陣列、佇列這樣的類型名稱。
-  * 使用複數形式的內容名稱。
-  * 例如，對於汽車數組，使用`cars`而不是`carArray`或`carList`。
-  * 有時會有例外，例如你想在沒有特定應用程式的上下文中展示一個特性的抽象形式。
-* 對於原始值，使用_小駝峰命名法_，以小寫字母開頭。不要使用`_`。
-  * 在適當的情況下，使用簡潔、可讀性好且語意化的名稱。比如，使用`currencyName`而不是`currency_name`。
-* 避免使用冠詞和所有格，例如，使用`car`而不是`myCar`或`aCar`。
-  * 有時會有例外，例如你想在沒有特定應用程式的上下文中展示一個特性的抽象形式。
+- 優先使用 ES6 語法的 `const`、`let` 宣告變數。
+- 使用簡短的標識符，並避免不常用的縮寫。好的變數名通常在 3 到 10 個字元之間，但這只是一個提示。例如，`accelerometer` 比為了字元長度而減短的縮寫 `acclmtr` 更具描述性。
+- 嘗試使用現實世界相關的例子，其中每個變數都有清晰的語義。只有在範例簡單且隨意時才使用佔位名稱，例如 `foo` 和 `bar`。
+- 不可使用[匈牙利命名法](https://zh.wikipedia.org/wiki/匈牙利命名法)。
+- 不要在變數名前面加上型別。
+  - 例如，不要寫成 `bBought = oCar.sBuyer != null` 或 `sName = "John Doe"`，而是寫成 `bought = car.buyer !== null` 或 `sName = "John Doe"`。
+- 對於集合，避免在命名中新增例如清單、陣列、佇列這樣的類型名稱。
+  - 使用複數形式的內容名稱。
+  - 例如，對於汽車數組，使用 `cars` 而不是 `carArray` 或 `carList`。
+  - 有時會有例外，例如你想在沒有特定應用程式的上下文中展示一個特性的抽象形式。
+- 對於原始值，使用*小駝峰命名法*，以小寫字母開頭。不要使用 `_`。
+  - 在適當的情況下，使用簡潔、可讀性好且語意化的名稱。比如，使用 `currencyName` 而不是 `currency_name`。
+- 避免使用冠詞和所有格，例如，使用 `car` 而不是 `myCar` 或 `aCar`。
+  - 有時會有例外，例如你想在沒有特定應用程式的上下文中展示一個特性的抽象形式。
